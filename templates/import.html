@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Enpòte CSV</h3>
+<p>Telechaje yon CSV ki gen kolòn: name,phone,service,expiration_date (YYYY-MM-DD)</p>
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="file" class="form-control mb-3" required>
+  <button class="btn btn-primary">Upload</button>
+</form>
+{% endblock %}

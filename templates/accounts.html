@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Kont</h3>
+<form method="post" action="{{ url_for('add_account') }}" class="row g-3 mb-4">
+  <div class="col-md-3"><input class="form-control" name="service" placeholder="Netflix" required></div>
+  <div class="col-md-3"><input class="form-control" name="account_type" placeholder="VIP/REG"></div>
+  <div class="col-md-3">
+    <select class="form-control" name="status">
+      <option value="available">Available</option>
+      <option value="in_use">In Use</option>
+      <option value="paused">Paused</option>
+    </select>
+  </div>
+  <div class="col-md-3"><input class="form-control" name="expiration_date" type="date"></div>
+  <div class="col-12"><button class="btn btn-success">Ajoute Kont</button></div>
+</form>
+
+<table class="table">
+  <thead><tr><th>#</th><th>Service</th><th>Type</th><th>Status</th><th>Exp</th></tr></thead>
+  <tbody>
+    {% for a in accounts %}
+    <tr><td>{{ a.id }}</td><td>{{ a.service }}</td><td>{{ a.account_type }}</td><td>{{ a.status }}</td><td>{{ a.expiration_date }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

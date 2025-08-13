@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Rapò</h3>
+<p>Telechaje rapò sa yo:</p>
+<a href="{{ url_for('download_daily') }}" class="btn btn-outline-primary">Daily CSV</a>
+<a href="{{ url_for('download_weekly') }}" class="btn btn-outline-secondary">Weekly CSV</a>
+{% endblock %}

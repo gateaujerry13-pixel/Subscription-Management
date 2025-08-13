@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Kliyan</h3>
+<form method="post" action="{{ url_for('add_client') }}" class="row g-3 mb-4">
+  <div class="col-md-4"><input class="form-control" name="name" placeholder="Non" required></div>
+  <div class="col-md-3"><input class="form-control" name="phone" placeholder="+1..." required></div>
+  <div class="col-md-3"><input class="form-control" name="service" placeholder="Netflix/Disney+" required></div>
+  <div class="col-md-2"><input class="form-control" name="expiration_date" type="date" required></div>
+  <div class="col-12"><button class="btn btn-success">Ajoute Kliyan</button></div>
+</form>
+
+<table class="table">
+  <thead><tr><th>#</th><th>Non</th><th>Phone</th><th>Service</th><th>Exp</th></tr></thead>
+  <tbody>
+    {% for c in clients %}
+    <tr><td>{{ c.id }}</td><td>{{ c.name }}</td><td>{{ c.phone }}</td><td>{{ c.service }}</td><td>{{ c.expiration_date }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
