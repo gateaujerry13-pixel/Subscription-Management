@@ -21,6 +21,10 @@ def create_app():
     app.config['SETUP_TOKEN'] = os.getenv('SETUP_TOKEN')
     db.init_app(app)
     Migrate(app, db)
+    # Ensure DB tables and data folder exist on boot
+    with app.app_context():
+        db.create_all()
+    os.makedirs(os.path.join(app.root_path, 'data'), exist_ok=True)
 
     login_manager = LoginManager()
     login_manager.login_view = 'login'
